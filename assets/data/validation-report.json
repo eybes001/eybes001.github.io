@@ -1,0 +1,57 @@
+{
+  "source": {
+    "name": "Online Retail",
+    "creator": "Daqing Chen",
+    "year": 2015,
+    "doi": "10.24432/C5BW33",
+    "url": "https://archive.ics.uci.edu/dataset/352/online+retail",
+    "download": "https://archive.ics.uci.edu/static/public/352/online%2Bretail.zip",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "sha256": "43465a06f2ccf7c8b5bd2892bc7defb52f97487934fe93b16ae4c3936424676d",
+    "retrieved": "2026-10-24",
+    "period_start": "2010-12-01",
+    "period_end": "2011-12-09",
+    "currency": "GBP",
+    "raw_rows": 541909,
+    "ledger_rows": 531172,
+    "schema_version": 1
+  },
+  "checks": [
+    {
+      "name": "Source row count matches publication",
+      "status": "pass",
+      "detail": "541909"
+    },
+    {
+      "name": "Every source row assigned exactly one disposition",
+      "status": "pass",
+      "detail": "541909"
+    },
+    {
+      "name": "Source signed value reconciles to all dispositions",
+      "status": "pass",
+      "detail": "GBP 9,747,747.93"
+    },
+    {
+      "name": "Integer ledger reconciles to independent streaming totals",
+      "status": "pass",
+      "detail": "GBP 9,770,919.71"
+    },
+    {
+      "name": "Monthly, product and country totals reconcile",
+      "status": "pass",
+      "detail": "All 12 dashboard views"
+    },
+    {
+      "name": "UK + international reconciles to all markets",
+      "status": "pass",
+      "detail": "Amounts only; distinct customers are recalculated"
+    },
+    {
+      "name": "Customer segments exhaust the identified buyer population",
+      "status": "pass",
+      "detail": "All 12 dashboard views"
+    }
+  ]
+}
