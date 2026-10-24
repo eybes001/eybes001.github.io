@@ -1,107 +1,310 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="dark">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b0f12">
-  <meta name="description" content="Eyad Beshier helps growing teams find pricing inconsistencies, clean product data, and turn messy reporting into decisions. Explore interactive examples of pricing and data analysis.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Eyad Beshier — Pricing & Data Intelligence">
-  <meta property="og:description" content="The details in your data should work for you. Explore pricing, product data and margin intelligence demos.">
-  <meta property="og:locale" content="en_US">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <title>Eyad Beshier | Pricing & Data Intelligence</title>
-  <script src="app.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eyad Aly — 3D Luxury Portfolio & Analytics Studio</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Three.js & Loaders -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <style>
+    body { margin: 0; overflow: hidden; background: #020617; font-family: 'Inter', sans-serif; color: #f8fafc; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+  </style>
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <div class="site-shell">
-    <header class="site-header">
-      <div class="nav-wrap container">
-        <a class="brand" href="#home" aria-label="Eyad Beshier, home"><span class="brand-symbol">e<span>∕</span>b</span><span class="brand-name">EYAD BESHIER <small>PRICING & DATA</small></span></a>
-        <nav class="desktop-nav" aria-label="Primary navigation">
-          <a href="#work">Work</a>
-          <a href="#lab">Live lab</a>
-          <a href="#services">Services</a>
-          <a href="#about">About</a>
-        </nav>
-        <a class="nav-cta contact-link" href="#contact">Let's talk <span aria-hidden="true">↗</span></a>
-        <button class="menu-toggle" id="menu-toggle" aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation"><span></span><span></span></button>
-      </div>
-      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
-        <a href="#work">Work</a><a href="#lab">Live lab</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a>
-      </nav>
-    </header>
+<body class="relative w-screen h-screen select-none">
 
-    <main id="main">
-      <section id="home" class="hero section-edge container">
-        <div class="hero-copy reveal">
-          <div class="eyebrow"><span class="pulse"></span> INDEPENDENT PRICING & DATA ANALYST <span class="hero-index">/ 01</span></div>
-          <h1>Find the<br><span class="muted-headline">patterns.</span><br><span class="accent-headline">Fix the leaks<span class="period">.</span></span></h1>
-          <p class="hero-lead">I turn messy product data, pricing rules and spreadsheets into clearer decisions — helping growing teams spot what's costing them.</p>
-          <div class="hero-actions"><a class="button button-primary" href="#lab">Explore the live lab <span aria-hidden="true">↗</span></a><a class="button button-outline" href="#work">See selected work <span aria-hidden="true">↓</span></a></div>
-          <div class="hero-foot"><span class="tiny-mark">✳</span> Remote collaboration · US & GCC markets <span class="foot-divider">/</span> Built for lean teams</div>
-        </div>
+  <!-- 3D Canvas Container -->
+  <div id="canvas-container" class="absolute inset-0 w-full h-full z-0"></div>
 
-        <div class="hero-art reveal" aria-label="Illustrative product quality audit dashboard with synthetic data">
-          <div class="orb orb-one"></div><div class="orb orb-two"></div>
-          <div class="dashboard">
-            <div class="dash-top"><span><i class="status-dot"></i> DATA QUALITY MONITOR</span><span class="dash-code">DEMO // 001</span></div>
-            <div class="dash-main">
-              <div class="dash-title-row"><div><p class="dash-overline">Product classification review</p><h2>Find what changed.</h2></div><span class="mini-icon">↗</span></div>
-              <div class="dash-stats"><div><span>RECORDS SCANNED</span><b>12</b></div><div><span>RULE EXCEPTIONS</span><b class="warning-number">04 <small>↗</small></b></div></div>
-              <div class="dash-chart" aria-hidden="true"><div class="chart-head"><span>Classification consistency</span><span>BY SAMPLE GROUP</span></div><div class="chart-lines"><span></span><span></span><span></span></div><div class="columns"><div><i style="height:54%"></i><small>SRV</small></div><div><i style="height:79%"></i><small>SVR</small></div><div><i style="height:92%"></i><small>STO</small></div><div><i style="height:69%"></i><small>SW</small></div><div><i style="height:98%"></i><small>ACC</small></div></div></div>
-              <div class="alert-strip"><span class="alert-shape">!</span><span><strong>4 inconsistencies found</strong><small>Across synthetic product records</small></span><span class="arrow-symbol">↗</span></div>
-            </div>
-            <div class="dash-bottom"><span>● LIVE INTERFACE PREVIEW</span><span>NO COMPANY DATA USED</span></div>
-          </div>
-          <span class="decor-cross cross-a">✳</span><span class="decor-cross cross-b">+</span>
-        </div>
-      </section>
+  <!-- Top Navigation HUD -->
+  <header class="absolute top-0 left-0 right-0 z-30 p-4 md:p-6 flex flex-wrap items-center justify-between gap-4 pointer-events-none">
+    <div class="pointer-events-auto bg-slate-950/80 backdrop-blur-md border border-slate-800 px-4 py-2.5 rounded-xl flex items-center space-x-3 shadow-lg">
+      <div class="w-2.5 h-2.5 rounded-full bg-sky-400 animate-pulse"></div>
+      <span class="mono text-sm font-bold tracking-widest uppercase text-white">Eyad Aly</span>
+    </div>
 
-      <section class="ticker" aria-label="Areas of expertise"><div class="ticker-inner"><span>PRICING INTELLIGENCE</span><b>✳</b><span>PRODUCT DATA QUALITY</span><b>✳</b><span>MARGIN VISIBILITY</span><b>✳</b><span>BETTER DECISIONS</span><b>✳</b><span>PRICING INTELLIGENCE</span><b>✳</b></div></section>
+    <nav class="pointer-events-auto bg-slate-950/80 backdrop-blur-md border border-slate-800 p-1.5 rounded-xl flex flex-wrap gap-1 shadow-lg">
+      <button onclick="navigate('hero')" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-sky-500 text-slate-950 transition" id="btn-hero">Studio</button>
+      <button onclick="navigate('dashboard')" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:bg-slate-800 transition" id="btn-dashboard">Monitor Dashboard</button>
+      <button onclick="navigate('about')" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:bg-slate-800 transition" id="btn-about">Biography</button>
+      <button onclick="navigate('experience')" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:bg-slate-800 transition" id="btn-experience">Experience</button>
+      <button onclick="navigate('skills')" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:bg-slate-800 transition" id="btn-skills">Skills</button>
+      <button onclick="navigate('projects')" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:bg-slate-800 transition" id="btn-projects">Projects</button>
+      <button onclick="navigate('cv')" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:bg-slate-800 transition" id="btn-cv">CV</button>
+      <button onclick="navigate('contact')" class="nav-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:bg-slate-800 transition" id="btn-contact">Contact</button>
+    </nav>
+  </header>
 
-      <section id="work" class="work-section container section-pad">
-        <div class="section-heading reveal"><div><p class="eyebrow text-accent">/ 02 — PROOF OF THINKING</p><h2>Work that makes<br><span class="heading-subtle">the invisible visible.</span></h2></div><p>Not glossy screenshots. Clear problems, repeatable logic and outputs a business can actually use.</p></div>
-        <div class="case-grid">
-          <article class="case-card case-primary reveal"><div class="case-header"><span>CASE STUDY 001</span><span class="case-label">INTERACTIVE DEMO</span></div><div class="case-visual data-visual"><div class="visual-grid"></div><div class="rule-row"><span>IF product.category = SERVICES</span><span class="rule-ok">✓</span></div><div class="rule-row"><span>AND premium_flag = TRUE</span><span class="rule-ok">✓</span></div><div class="rule-outcome">EXPECTED: PREMIUM SERVICES<span>↗</span></div><span class="visual-stamp">RULE-BASED LOGIC</span></div><div class="case-body"><p class="case-topic">DATA QUALITY / RULE AUTOMATION</p><h3>When master data stops following the rules.</h3><p>Compare product attributes against expected classifications, surface exceptions, and make correction reviews easier.</p><a href="#classification" class="text-link">Open working example <span>↗</span></a></div></article>
-          <article class="case-card reveal"><div class="case-header"><span>CASE STUDY 002</span><span class="case-label">INTERACTIVE DEMO</span></div><div class="case-visual leak-visual"><span class="leak-label">POTENTIAL MARGIN EROSION</span><div class="leak-amount">$24,300<span>*</span></div><div class="leak-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="leak-note">*Illustrative scenario only</span></div><div class="case-body"><p class="case-topic">PRICING / COMMERCIAL ANALYTICS</p><h3>Make the cost of tiny pricing leaks tangible.</h3><p>Model how revenue exposure and avoidable discount leakage combine into an annual opportunity estimate.</p><a href="#calculator" class="text-link">Try the simulator <span>↗</span></a></div></article>
-          <article class="case-card case-tertiary reveal"><div class="case-header"><span>CASE STUDY 003</span><span class="case-label">METHODOLOGY CONCEPT</span></div><div class="case-body"><div class="mini-flow"><span>EXPORT</span><i>→</i><span>CHECK</span><i>→</i><span>DECIDE</span></div><p class="case-topic">REPORTING / AUTOMATION</p><h3>From scattered exports to one useful view.</h3><p>A proposed framework for organizing SKU performance, rule exceptions and decisions into a lightweight, repeatable reporting cycle.</p><a href="#process" class="text-link">See the approach <span>↗</span></a></div></article>
-        </div>
-        <p class="demo-note"><span>ⓘ</span> Public examples on this site use illustrative assumptions and synthetic records, not real client data or claimed client outcomes.</p>
-      </section>
-
-      <section id="lab" class="lab-section section-pad"><div class="container">
-        <div class="section-heading reveal lab-heading"><div><p class="eyebrow text-accent">/ 03 — THE LIVE LAB</p><h2>Don't just read it.<br><span class="heading-subtle">Test the thinking.</span></h2></div><p>Two small, working tools that show how I approach real operational problems. Change the inputs and see the logic respond.</p></div>
-        <div class="lab-tabs" role="tablist" aria-label="Live demos"><button id="tab-audit" class="lab-tab active" type="button" role="tab" aria-selected="true" aria-controls="classification">01 / Classification audit <span>↗</span></button><button id="tab-calc" class="lab-tab" type="button" role="tab" aria-selected="false" aria-controls="calculator">02 / Margin simulator <span>↗</span></button></div>
-        <div id="classification" class="lab-panel" role="tabpanel" aria-labelledby="tab-audit">
-          <div class="panel-intro"><div><div class="chip chip-lime">● WORKING DEMO</div><h3>Product rule auditor</h3><p>Each record has a category, premium flag, and current price group. The checker derives the expected group and flags mismatches automatically.</p></div><div class="audit-summary" aria-live="polite"><div><strong id="total-count">12</strong><span>RECORDS</span></div><div><strong id="flagged-count">4</strong><span>EXCEPTIONS</span></div><div><strong id="quality-score">67%</strong><span>CONSISTENT</span></div></div></div>
-          <div class="table-toolbar"><div class="filter-buttons" role="group" aria-label="Filter records"><button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All records</button><button class="filter-btn" type="button" data-filter="flagged" aria-pressed="false">Exceptions only</button><button class="filter-btn" type="button" data-filter="clean" aria-pressed="false">Matching</button></div><span class="toolbar-meta">SYNTHETIC DATASET / 12 SKUS</span></div>
-          <div class="table-scroll"><table class="audit-table"><thead><tr><th>SKU</th><th>Category</th><th>Premium</th><th>Current group</th><th>Expected group</th><th>Status</th></tr></thead><tbody id="audit-rows"></tbody></table></div>
-          <div class="audit-footer"><span><span class="legend-dot orange"></span> Needs review <span class="legend-dot green"></span> Rule matched</span><a class="download-link" href="assets/synthetic-product-data.csv" download>Download sample CSV <span>↓</span></a></div>
-        </div>
-        <div id="calculator" class="lab-panel calc-panel" role="tabpanel" aria-labelledby="tab-calc" hidden>
-          <div class="panel-intro"><div><div class="chip chip-lime">● SCENARIO TOOL</div><h3>Price leakage estimator</h3><p>Explore the theoretical revenue impact of small recoverable pricing differences. This is a planning illustration, not a forecast or financial diagnosis.</p></div><div class="formula-pill">REVENUE × EXPOSURE × LEAKAGE</div></div>
-          <div class="calc-grid"><div class="calc-inputs"><div class="range-group"><div class="range-label"><label for="revenue">Annual sales revenue</label><output id="revenue-value" for="revenue">$4,500,000</output></div><input type="range" id="revenue" min="100000" max="20000000" step="100000" value="4500000"><div class="range-extremes"><span>$100k</span><span>$20m</span></div></div><div class="range-group"><div class="range-label"><label for="exposure">Sales potentially affected</label><output id="exposure-value" for="exposure">18%</output></div><input type="range" id="exposure" min="1" max="60" step="1" value="18"><div class="range-extremes"><span>1%</span><span>60%</span></div></div><div class="range-group"><div class="range-label"><label for="leakage">Illustrative avoidable leakage</label><output id="leakage-value" for="leakage">3.0%</output></div><input type="range" id="leakage" min="0.1" max="10" step="0.1" value="3"><div class="range-extremes"><span>0.1%</span><span>10%</span></div></div><button type="button" id="reset-calc" class="reset-button">↺ Reset assumptions</button></div>
-          <div class="calc-output"><span class="calc-output-label">ILLUSTRATIVE ANNUAL OPPORTUNITY</span><div class="calc-big-number" id="opportunity" aria-live="polite">$24,300</div><div class="calc-output-rule"></div><div class="calc-mini-row"><span>Potentially affected sales</span><strong id="affected-sales">$810,000</strong></div><div class="calc-mini-row"><span>Remaining revenue (outside scope)</span><strong id="unaffected-sales">$3,690,000</strong></div><p>This hypothetical figure is not guaranteed savings. Actual findings depend on transaction-level checks and business rules.</p></div></div>
-        </div>
-        <div class="lab-bottom"><span>GOOD ANALYSIS ISN'T A BLACK BOX.</span><span>IT SHOULD BE EASY TO QUESTION. <b>↗</b></span></div>
-      </div></section>
-
-      <section id="services" class="services-section container section-pad"><div class="section-heading reveal"><div><p class="eyebrow text-accent">/ 04 — HOW I CAN HELP</p><h2>Small fixes.<br><span class="heading-subtle">Serious clarity.</span></h2></div><p>Practical analysis for small and medium-sized companies that need answers, not another complicated system.</p></div><div class="services-grid"><div class="service-item reveal"><span class="service-num">01 /</span><div class="service-icon">⌗</div><h3>Pricing health checks</h3><p>Identify inconsistent discounts, unusual price relationships and opportunities worth investigating.</p><span class="service-tags">PRICE RULES / DISCOUNTS / MARGIN</span></div><div class="service-item reveal"><span class="service-num">02 /</span><div class="service-icon">⧉</div><h3>Product data cleanup</h3><p>Review classifications, master-data drift and rule exceptions to reduce avoidable manual correction.</p><span class="service-tags">EXCEL / SAP EXPORTS / SKU LOGIC</span></div><div class="service-item reveal"><span class="service-num">03 /</span><div class="service-icon">◫</div><h3>Reporting that works</h3><p>Build lean dashboards and repeatable analysis that teams can maintain after handover.</p><span class="service-tags">KPI DESIGN / AUTOMATION / ANALYSIS</span></div></div></section>
-
-      <section id="about" class="about-section section-pad"><div class="container about-grid"><div class="about-heading reveal"><p class="eyebrow text-accent">/ 05 — THE PERSON BEHIND THE LOGIC</p><h2>Curious by nature.<br><span class="heading-subtle">Structured by habit.</span></h2><div class="about-monogram" aria-hidden="true">e<span>/</span>b.</div></div><div class="about-text reveal"><p class="about-lead">I'm Eyad — a pricing and data analyst interested in the details most dashboards miss.</p><p>My background includes roughly one year working with manufacturer-level pricing workflows, product classifications, and SAP-based master data. I use spreadsheets, database queries and practical automation to turn recurring data problems into repeatable checks.</p><p>I care about work that is easy to explain, easy to maintain, and useful long after the first analysis.</p><div class="toolbelt"><span>EXCEL</span><span>SAP WORKFLOWS</span><span>SQL / QUERIES</span><span>DATA ANALYSIS</span><span>AUTOMATION</span></div></div></div></section>
-
-      <section id="process" class="process-section container section-pad"><div class="section-heading reveal"><div><p class="eyebrow text-accent">/ 06 — THE APPROACH</p><h2>No mystery.<br><span class="heading-subtle">Just a useful process.</span></h2></div></div><div class="process-steps"><div class="process-step reveal"><span>01</span><h3>Understand</h3><p>Start with a specific business question, the existing process and a small relevant export.</p></div><div class="process-step reveal"><span>02</span><h3>Find</h3><p>Define the rules, find exceptions, and validate what the data actually supports.</p></div><div class="process-step reveal"><span>03</span><h3>Make it stick</h3><p>Deliver a transparent output and a simple method to run the check again.</p></div></div></section>
-
-      <section id="contact" class="contact-section"><div class="container contact-inner"><p class="eyebrow">/ 07 — YOUR NEXT MOVE</p><h2>Better decisions<br>start with <em>better questions.</em></h2><p>Have messy pricing, product data or reporting? Tell me what keeps breaking, and let's find a practical way forward.</p><a id="contact-email" class="button button-contact contact-link" href="#contact">Start a conversation <span>↗</span></a><span class="contact-sub" id="contact-status">Available for focused remote projects · US & GCC</span></div><div class="contact-grain" aria-hidden="true"></div></section>
-    </main>
-
-    <footer class="site-footer"><div class="container footer-grid"><div class="brand footer-brand"><span class="brand-symbol">e<span>∕</span>b</span><span class="brand-name">EYAD BESHIER <small>PRICING & DATA</small></span></div><p>Independent pricing and data analysis.<br>Built with clarity, not complexity.</p><div><a href="#home">BACK TO TOP ↑</a><small>© <span id="year">2026</span> EYAD BESHIER</small></div></div></footer>
+  <!-- Bottom Status HUD -->
+  <div class="absolute bottom-6 left-6 right-6 z-30 flex items-center justify-between pointer-events-none">
+    <div class="pointer-events-auto bg-slate-950/80 backdrop-blur-md border border-slate-800 px-4 py-3 rounded-xl shadow-lg">
+      <div class="mono text-[10px] text-slate-400 uppercase tracking-wider">Active Viewpoint</div>
+      <div id="view-label" class="text-sm font-semibold text-sky-400">Luxury Studio Overview</div>
+    </div>
+    <div class="hidden md:block pointer-events-auto bg-slate-950/80 backdrop-blur-md border border-slate-800 px-4 py-3 rounded-xl text-xs text-slate-300">
+      💡 Drag to orbit • Scroll to zoom • Click 3D Monitor or top buttons to explore
+    </div>
   </div>
+
+  <!-- Interactive Modal Overlay -->
+  <div id="modal-overlay" class="hidden absolute inset-4 md:inset-14 z-40 bg-slate-900/95 backdrop-blur-xl border border-slate-800 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+    <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/60">
+      <span id="modal-title" class="mono text-xs uppercase tracking-widest text-sky-400 font-semibold">Eyad Aly — Executive Studio</span>
+      <button onclick="navigate('hero')" class="px-3 py-1 rounded-lg bg-slate-800 hover:bg-rose-900/60 text-slate-300 hover:text-white text-xs font-semibold transition">✕ Close</button>
+    </div>
+    <div id="modal-body" class="flex-1 overflow-y-auto p-6 md:p-10 space-y-6"></div>
+  </div>
+
+  <!-- 3D & UI Logic Script -->
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+    const container = document.getElementById('canvas-container');
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color('#020617');
+    scene.fog = new THREE.FogExp2('#020617', 0.04);
+
+    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(0, 2.2, 6);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.shadowMap.enabled = true;
+    container.appendChild(renderer.domElement);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.maxPolarAngle = Math.PI / 2 - 0.02;
+    controls.minDistance = 1.5;
+    controls.maxDistance = 14;
+
+    // Professional Studio Lighting
+    scene.add(new THREE.AmbientLight(0xffffff, 0.8));
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1.5);
+    dirLight.position.set(6, 12, 8);
+    dirLight.castShadow = true;
+    scene.add(dirLight);
+
+    const accentLight = new THREE.PointLight(0x38bdf8, 2, 12);
+    accentLight.position.set(-2, 2.5, -1);
+    scene.add(accentLight);
+
+    // Procedural Fallback Workspace (Visible instantly while GLB loads)
+    const fallbackGroup = new THREE.Group();
+    const floor = new THREE.Mesh(
+      new THREE.PlaneGeometry(30, 30),
+      new THREE.MeshStandardMaterial({ color: 0x0f172a, roughness: 0.4, metalness: 0.2 })
+    );
+    floor.rotation.x = -Math.PI / 2;
+    floor.position.y = -1;
+    floor.receiveShadow = true;
+    scene.add(floor);
+
+    const desk = new THREE.Mesh(
+      new THREE.BoxGeometry(3.2, 0.12, 1.4),
+      new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.2, metalness: 0.5 })
+    );
+    desk.position.set(0, -0.1, 0);
+    desk.castShadow = true;
+    fallbackGroup.add(desk);
+
+    const monitorScreen = new THREE.Mesh(
+      new THREE.BoxGeometry(1.5, 0.85, 0.05),
+      new THREE.MeshStandardMaterial({ color: 0x0284c7, emissive: 0x0369a1, emissiveIntensity: 0.5, roughness: 0.1 })
+    );
+    monitorScreen.position.set(0, 0.55, -0.2);
+    monitorScreen.name = "ComputerMonitor";
+    fallbackGroup.add(monitorScreen);
+    scene.add(fallbackGroup);
+
+    // Load luxury_office_studio-v2.glb from the same folder
+    const loader = new GLTFLoader();
+    loader.load(
+      './luxury_office_studio-v2.glb',
+      (gltf) => {
+        scene.remove(fallbackGroup);
+        gltf.scene.position.set(0, -1, 0);
+        gltf.scene.traverse((child) => {
+          if (child.isMesh) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+        scene.add(gltf.scene);
+      },
+      undefined,
+      (err) => console.log('Using procedural studio environment fallback:', err)
+    );
+
+    // Camera Navigation Viewpoints
+    const targetCamPos = new THREE.Vector3(0, 2.2, 6);
+    const targetLookAt = new THREE.Vector3(0, 0.3, 0);
+
+    const VIEWS = {
+      hero: { pos: [0, 2.2, 6], look: [0, 0.3, 0], label: 'Luxury Studio Overview' },
+      dashboard: { pos: [0, 0.8, 1.8], look: [0, 0.55, -0.2], label: 'Executive Analytics Monitor' },
+      about: { pos: [-2.8, 1.6, 3.2], look: [0, 0.3, 0], label: 'Biography & Executive Profile' },
+      experience: { pos: [2.8, 1.8, 3.2], look: [0, 0.3, 0], label: 'Professional Experience' },
+      skills: { pos: [0, 3.2, 4.2], look: [0, 0.2, 0], label: 'Technical Skills & Stack' },
+      projects: { pos: [-2.2, 2.0, -2.8], look: [0, 0.2, 0], label: 'Featured Enterprise Projects' },
+      cv: { pos: [2.2, 2.0, 2.5], look: [0, 0.4, 0], label: 'Curriculum Vitae' },
+      contact: { pos: [2.5, 1.8, -2.5], look: [0, 0.2, 0], label: 'Executive Contact Channel' }
+    };
+
+    // Raycaster for clicking 3D monitor in the scene
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+    window.addEventListener('click', (e) => {
+      if (e.target !== renderer.domElement) return;
+      mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(scene.children, true);
+      if (intersects.length > 0) {
+        const name = (intersects[0].object.name || '').toLowerCase();
+        if (name.includes('monitor') || name.includes('screen') || intersects[0].object === monitorScreen) {
+          window.navigate('dashboard');
+        }
+      }
+    });
+
+    // Render loop with smooth camera lerping
+    function animate() {
+      requestAnimationFrame(animate);
+      camera.position.lerp(targetCamPos, 0.05);
+      controls.target.lerp(targetLookAt, 0.05);
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Interactive Business Simulator Handler
+    window.simMult = 1.25;
+    window.updateSim = (val) => {
+      window.simMult = parseFloat(val);
+      const simValEl = document.getElementById('sim-val');
+      const arrValEl = document.getElementById('arr-val');
+      if (simValEl) simValEl.innerText = window.simMult.toFixed(2) + 'x';
+      if (arrValEl) arrValEl.innerText = '$' + Math.round(142850 * window.simMult).toLocaleString();
+    };
+
+    // Modal Content Templates for Eyad Aly
+    const CONTENT = {
+      dashboard: () => `
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-slate-800/60 border border-slate-700 p-5 rounded-xl">
+            <div class="text-xs text-slate-400 uppercase">Simulated ARR</div>
+            <div id="arr-val" class="text-2xl font-bold text-emerald-400 mt-2">$${Math.round(142850 * window.simMult).toLocaleString()}</div>
+            <div class="text-xs text-slate-400 mt-1">+24.8% YoY Synthetic Growth</div>
+          </div>
+          <div class="bg-slate-800/60 border border-slate-700 p-5 rounded-xl">
+            <div class="text-xs text-slate-400 uppercase">Active Automation Pipelines</div>
+            <div class="text-2xl font-bold text-sky-400 mt-2">1,248</div>
+            <div class="text-xs text-slate-400 mt-1">99.98% System Uptime</div>
+          </div>
+          <div class="bg-slate-800/60 border border-slate-700 p-5 rounded-xl">
+            <div class="text-xs text-slate-400 uppercase">Latency Overhead</div>
+            <div class="text-2xl font-bold text-amber-400 mt-2">14.2 ms</div>
+            <div class="text-xs text-slate-400 mt-1">Real-time Telemetry</div>
+          </div>
+        </div>
+        <div class="bg-slate-800/40 border border-slate-700 p-6 rounded-xl mt-6">
+          <label class="text-xs text-slate-300 uppercase font-semibold block mb-3">
+            Interactive Business Scaling Simulator: <span id="sim-val" class="text-sky-400 font-bold">${window.simMult}x</span>
+          </label>
+          <input type="range" min="0.5" max="3.0" step="0.05" value="${window.simMult}" oninput="window.updateSim(this.value)" class="w-full accent-sky-400 cursor-pointer" />
+        </div>
+      `,
+      about: () => `
+        <h2 class="text-2xl font-bold text-white">Eyad Aly — Senior Solutions Architect</h2>
+        <p class="text-slate-300 leading-relaxed">Senior technology engineer and solutions architect specializing in high-throughput enterprise automation, full-stack 3D WebGL applications, distributed cloud systems, and real-time operational analytics.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+          <div class="bg-slate-800/50 border border-slate-700 p-4 rounded-xl"><b class="text-sky-400">Enterprise Architecture</b><p class="text-xs text-slate-400 mt-1">Scalable microservices and data pipelines handling millions of synthetic events.</p></div>
+          <div class="bg-slate-800/50 border border-slate-700 p-4 rounded-xl"><b class="text-sky-400">3D Web & Interactive UX</b><p class="text-xs text-slate-400 mt-1">Photorealistic Three.js and WebGL experiences with smooth camera physics.</p></div>
+        </div>
+      `,
+      experience: () => `
+        <div class="space-y-4">
+          <div class="bg-slate-800/50 border border-slate-700 p-5 rounded-xl">
+            <div class="flex justify-between"><b class="text-white">Principal Systems Architect</b><span class="text-xs text-sky-400">2023 — Present</span></div>
+            <p class="text-xs text-slate-400 mt-2">Architected real-time event-driven data streaming layers and enterprise workflow automation engines.</p>
+          </div>
+          <div class="bg-slate-800/50 border border-slate-700 p-5 rounded-xl">
+            <div class="flex justify-between"><b class="text-white">Senior Full-Stack & 3D Web Engineer</b><span class="text-xs text-sky-400">2021 — 2023</span></div>
+            <p class="text-xs text-slate-400 mt-2">Developed interactive 3D WebGL visualizers and executive analytics dashboards.</p>
+          </div>
+        </div>
+      `,
+      skills: () => `
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-slate-800/50 border border-slate-700 p-5 rounded-xl"><b class="text-sky-400">Engineering</b><p class="text-xs text-slate-300 mt-2">TypeScript, React, Node.js, Python, Go</p></div>
+          <div class="bg-slate-800/50 border border-slate-700 p-5 rounded-xl"><b class="text-sky-400">3D & WebGL</b><p class="text-xs text-slate-300 mt-2">Three.js, React Three Fiber, GLSL, Blender</p></div>
+          <div class="bg-slate-800/50 border border-slate-700 p-5 rounded-xl"><b class="text-sky-400">Cloud & DevOps</b><p class="text-xs text-slate-300 mt-2">AWS, Docker, Kubernetes, Render, CI/CD</p></div>
+        </div>
+      `,
+      projects: () => `
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-slate-800/50 border border-slate-700 p-5 rounded-xl"><b class="text-white">Autonomous Workflow Engine</b><p class="text-xs text-slate-400 mt-2">Distributed engine processing 25,000+ synthetic jobs/sec.</p></div>
+          <div class="bg-slate-800/50 border border-slate-700 p-5 rounded-xl"><b class="text-white">Lumen 3D Executive Studio</b><p class="text-xs text-slate-400 mt-2">Luxury WebGL workspace with real-time business simulations.</p></div>
+        </div>
+      `,
+      cv: () => `
+        <div class="flex justify-between items-center"><h3 class="text-lg font-bold">Eyad Aly — Curriculum Vitae</h3><button onclick="window.print()" class="px-4 py-2 bg-sky-500 text-slate-950 text-xs font-bold rounded-lg">Print / Export PDF</button></div>
+        <p class="text-sm text-slate-300 mt-4">B.Sc. in Computer Science & Engineering • AWS Certified Solutions Architect • Certified Kubernetes Administrator (CKA)</p>
+      `,
+      contact: () => `
+        <div class="max-w-md mx-auto space-y-4">
+          <h3 class="text-lg font-bold text-white">Direct Executive Inquiry — Eyad Aly</h3>
+          <input type="text" placeholder="Your Name" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-4 py-2.5 text-sm" />
+          <input type="email" placeholder="Your Email" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-4 py-2.5 text-sm" />
+          <textarea rows="4" placeholder="Message" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-4 py-2.5 text-sm"></textarea>
+          <button onclick="alert('Message sent to Eyad Aly!')" class="w-full py-3 bg-sky-500 text-slate-950 font-bold text-xs uppercase rounded-lg">Send Inquiry</button>
+        </div>
+      `
+    };
+
+    window.navigate = (section) => {
+      const v = VIEWS[section] || VIEWS.hero;
+      targetCamPos.set(...v.pos);
+      targetLookAt.set(...v.look);
+      document.getElementById('view-label').innerText = v.label;
+
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.className = 'nav-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:bg-slate-800 transition';
+      });
+      const activeBtn = document.getElementById('btn-' + section);
+      if (activeBtn) activeBtn.className = 'nav-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-sky-500 text-slate-950 transition';
+
+      const modal = document.getElementById('modal-overlay');
+      if (section === 'hero') {
+        modal.classList.add('hidden');
+      } else {
+        document.getElementById('modal-title').innerText = 'Eyad Aly — ' + v.label;
+        document.getElementById('modal-body').innerHTML = CONTENT[section] ? CONTENT[section]() : '';
+        modal.classList.remove('hidden');
+      }
+    };
+  </script>
 </body>
 </html>
