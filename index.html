@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0f12">
+  <meta name="description" content="Eyad Beshier helps growing teams find pricing inconsistencies, clean product data, and turn messy reporting into decisions. Explore interactive examples of pricing and data analysis.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Eyad Beshier — Pricing & Data Intelligence">
+  <meta property="og:description" content="The details in your data should work for you. Explore pricing, product data and margin intelligence demos.">
+  <meta property="og:locale" content="en_US">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>Eyad Beshier | Pricing & Data Intelligence</title>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="nav-wrap container">
+        <a class="brand" href="#home" aria-label="Eyad Beshier, home"><span class="brand-symbol">e<span>∕</span>b</span><span class="brand-name">EYAD BESHIER <small>PRICING & DATA</small></span></a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="#work">Work</a>
+          <a href="#lab">Live lab</a>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+        </nav>
+        <a class="nav-cta contact-link" href="#contact">Let's talk <span aria-hidden="true">↗</span></a>
+        <button class="menu-toggle" id="menu-toggle" aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation"><span></span><span></span></button>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+        <a href="#work">Work</a><a href="#lab">Live lab</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section id="home" class="hero section-edge container">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="pulse"></span> INDEPENDENT PRICING & DATA ANALYST <span class="hero-index">/ 01</span></div>
+          <h1>Find the<br><span class="muted-headline">patterns.</span><br><span class="accent-headline">Fix the leaks<span class="period">.</span></span></h1>
+          <p class="hero-lead">I turn messy product data, pricing rules and spreadsheets into clearer decisions — helping growing teams spot what's costing them.</p>
+          <div class="hero-actions"><a class="button button-primary" href="#lab">Explore the live lab <span aria-hidden="true">↗</span></a><a class="button button-outline" href="#work">See selected work <span aria-hidden="true">↓</span></a></div>
+          <div class="hero-foot"><span class="tiny-mark">✳</span> Remote collaboration · US & GCC markets <span class="foot-divider">/</span> Built for lean teams</div>
+        </div>
+
+        <div class="hero-art reveal" aria-label="Illustrative product quality audit dashboard with synthetic data">
+          <div class="orb orb-one"></div><div class="orb orb-two"></div>
+          <div class="dashboard">
+            <div class="dash-top"><span><i class="status-dot"></i> DATA QUALITY MONITOR</span><span class="dash-code">DEMO // 001</span></div>
+            <div class="dash-main">
+              <div class="dash-title-row"><div><p class="dash-overline">Product classification review</p><h2>Find what changed.</h2></div><span class="mini-icon">↗</span></div>
+              <div class="dash-stats"><div><span>RECORDS SCANNED</span><b>12</b></div><div><span>RULE EXCEPTIONS</span><b class="warning-number">04 <small>↗</small></b></div></div>
+              <div class="dash-chart" aria-hidden="true"><div class="chart-head"><span>Classification consistency</span><span>BY SAMPLE GROUP</span></div><div class="chart-lines"><span></span><span></span><span></span></div><div class="columns"><div><i style="height:54%"></i><small>SRV</small></div><div><i style="height:79%"></i><small>SVR</small></div><div><i style="height:92%"></i><small>STO</small></div><div><i style="height:69%"></i><small>SW</small></div><div><i style="height:98%"></i><small>ACC</small></div></div></div>
+              <div class="alert-strip"><span class="alert-shape">!</span><span><strong>4 inconsistencies found</strong><small>Across synthetic product records</small></span><span class="arrow-symbol">↗</span></div>
+            </div>
+            <div class="dash-bottom"><span>● LIVE INTERFACE PREVIEW</span><span>NO COMPANY DATA USED</span></div>
+          </div>
+          <span class="decor-cross cross-a">✳</span><span class="decor-cross cross-b">+</span>
+        </div>
+      </section>
+
+      <section class="ticker" aria-label="Areas of expertise"><div class="ticker-inner"><span>PRICING INTELLIGENCE</span><b>✳</b><span>PRODUCT DATA QUALITY</span><b>✳</b><span>MARGIN VISIBILITY</span><b>✳</b><span>BETTER DECISIONS</span><b>✳</b><span>PRICING INTELLIGENCE</span><b>✳</b></div></section>
+
+      <section id="work" class="work-section container section-pad">
+        <div class="section-heading reveal"><div><p class="eyebrow text-accent">/ 02 — PROOF OF THINKING</p><h2>Work that makes<br><span class="heading-subtle">the invisible visible.</span></h2></div><p>Not glossy screenshots. Clear problems, repeatable logic and outputs a business can actually use.</p></div>
+        <div class="case-grid">
+          <article class="case-card case-primary reveal"><div class="case-header"><span>CASE STUDY 001</span><span class="case-label">INTERACTIVE DEMO</span></div><div class="case-visual data-visual"><div class="visual-grid"></div><div class="rule-row"><span>IF product.category = SERVICES</span><span class="rule-ok">✓</span></div><div class="rule-row"><span>AND premium_flag = TRUE</span><span class="rule-ok">✓</span></div><div class="rule-outcome">EXPECTED: PREMIUM SERVICES<span>↗</span></div><span class="visual-stamp">RULE-BASED LOGIC</span></div><div class="case-body"><p class="case-topic">DATA QUALITY / RULE AUTOMATION</p><h3>When master data stops following the rules.</h3><p>Compare product attributes against expected classifications, surface exceptions, and make correction reviews easier.</p><a href="#classification" class="text-link">Open working example <span>↗</span></a></div></article>
+          <article class="case-card reveal"><div class="case-header"><span>CASE STUDY 002</span><span class="case-label">INTERACTIVE DEMO</span></div><div class="case-visual leak-visual"><span class="leak-label">POTENTIAL MARGIN EROSION</span><div class="leak-amount">$24,300<span>*</span></div><div class="leak-bars"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="leak-note">*Illustrative scenario only</span></div><div class="case-body"><p class="case-topic">PRICING / COMMERCIAL ANALYTICS</p><h3>Make the cost of tiny pricing leaks tangible.</h3><p>Model how revenue exposure and avoidable discount leakage combine into an annual opportunity estimate.</p><a href="#calculator" class="text-link">Try the simulator <span>↗</span></a></div></article>
+          <article class="case-card case-tertiary reveal"><div class="case-header"><span>CASE STUDY 003</span><span class="case-label">METHODOLOGY CONCEPT</span></div><div class="case-body"><div class="mini-flow"><span>EXPORT</span><i>→</i><span>CHECK</span><i>→</i><span>DECIDE</span></div><p class="case-topic">REPORTING / AUTOMATION</p><h3>From scattered exports to one useful view.</h3><p>A proposed framework for organizing SKU performance, rule exceptions and decisions into a lightweight, repeatable reporting cycle.</p><a href="#process" class="text-link">See the approach <span>↗</span></a></div></article>
+        </div>
+        <p class="demo-note"><span>ⓘ</span> Public examples on this site use illustrative assumptions and synthetic records, not real client data or claimed client outcomes.</p>
+      </section>
+
+      <section id="lab" class="lab-section section-pad"><div class="container">
+        <div class="section-heading reveal lab-heading"><div><p class="eyebrow text-accent">/ 03 — THE LIVE LAB</p><h2>Don't just read it.<br><span class="heading-subtle">Test the thinking.</span></h2></div><p>Two small, working tools that show how I approach real operational problems. Change the inputs and see the logic respond.</p></div>
+        <div class="lab-tabs" role="tablist" aria-label="Live demos"><button id="tab-audit" class="lab-tab active" type="button" role="tab" aria-selected="true" aria-controls="classification">01 / Classification audit <span>↗</span></button><button id="tab-calc" class="lab-tab" type="button" role="tab" aria-selected="false" aria-controls="calculator">02 / Margin simulator <span>↗</span></button></div>
+        <div id="classification" class="lab-panel" role="tabpanel" aria-labelledby="tab-audit">
+          <div class="panel-intro"><div><div class="chip chip-lime">● WORKING DEMO</div><h3>Product rule auditor</h3><p>Each record has a category, premium flag, and current price group. The checker derives the expected group and flags mismatches automatically.</p></div><div class="audit-summary" aria-live="polite"><div><strong id="total-count">12</strong><span>RECORDS</span></div><div><strong id="flagged-count">4</strong><span>EXCEPTIONS</span></div><div><strong id="quality-score">67%</strong><span>CONSISTENT</span></div></div></div>
+          <div class="table-toolbar"><div class="filter-buttons" role="group" aria-label="Filter records"><button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All records</button><button class="filter-btn" type="button" data-filter="flagged" aria-pressed="false">Exceptions only</button><button class="filter-btn" type="button" data-filter="clean" aria-pressed="false">Matching</button></div><span class="toolbar-meta">SYNTHETIC DATASET / 12 SKUS</span></div>
+          <div class="table-scroll"><table class="audit-table"><thead><tr><th>SKU</th><th>Category</th><th>Premium</th><th>Current group</th><th>Expected group</th><th>Status</th></tr></thead><tbody id="audit-rows"></tbody></table></div>
+          <div class="audit-footer"><span><span class="legend-dot orange"></span> Needs review <span class="legend-dot green"></span> Rule matched</span><a class="download-link" href="assets/synthetic-product-data.csv" download>Download sample CSV <span>↓</span></a></div>
+        </div>
+        <div id="calculator" class="lab-panel calc-panel" role="tabpanel" aria-labelledby="tab-calc" hidden>
+          <div class="panel-intro"><div><div class="chip chip-lime">● SCENARIO TOOL</div><h3>Price leakage estimator</h3><p>Explore the theoretical revenue impact of small recoverable pricing differences. This is a planning illustration, not a forecast or financial diagnosis.</p></div><div class="formula-pill">REVENUE × EXPOSURE × LEAKAGE</div></div>
+          <div class="calc-grid"><div class="calc-inputs"><div class="range-group"><div class="range-label"><label for="revenue">Annual sales revenue</label><output id="revenue-value" for="revenue">$4,500,000</output></div><input type="range" id="revenue" min="100000" max="20000000" step="100000" value="4500000"><div class="range-extremes"><span>$100k</span><span>$20m</span></div></div><div class="range-group"><div class="range-label"><label for="exposure">Sales potentially affected</label><output id="exposure-value" for="exposure">18%</output></div><input type="range" id="exposure" min="1" max="60" step="1" value="18"><div class="range-extremes"><span>1%</span><span>60%</span></div></div><div class="range-group"><div class="range-label"><label for="leakage">Illustrative avoidable leakage</label><output id="leakage-value" for="leakage">3.0%</output></div><input type="range" id="leakage" min="0.1" max="10" step="0.1" value="3"><div class="range-extremes"><span>0.1%</span><span>10%</span></div></div><button type="button" id="reset-calc" class="reset-button">↺ Reset assumptions</button></div>
+          <div class="calc-output"><span class="calc-output-label">ILLUSTRATIVE ANNUAL OPPORTUNITY</span><div class="calc-big-number" id="opportunity" aria-live="polite">$24,300</div><div class="calc-output-rule"></div><div class="calc-mini-row"><span>Potentially affected sales</span><strong id="affected-sales">$810,000</strong></div><div class="calc-mini-row"><span>Remaining revenue (outside scope)</span><strong id="unaffected-sales">$3,690,000</strong></div><p>This hypothetical figure is not guaranteed savings. Actual findings depend on transaction-level checks and business rules.</p></div></div>
+        </div>
+        <div class="lab-bottom"><span>GOOD ANALYSIS ISN'T A BLACK BOX.</span><span>IT SHOULD BE EASY TO QUESTION. <b>↗</b></span></div>
+      </div></section>
+
+      <section id="services" class="services-section container section-pad"><div class="section-heading reveal"><div><p class="eyebrow text-accent">/ 04 — HOW I CAN HELP</p><h2>Small fixes.<br><span class="heading-subtle">Serious clarity.</span></h2></div><p>Practical analysis for small and medium-sized companies that need answers, not another complicated system.</p></div><div class="services-grid"><div class="service-item reveal"><span class="service-num">01 /</span><div class="service-icon">⌗</div><h3>Pricing health checks</h3><p>Identify inconsistent discounts, unusual price relationships and opportunities worth investigating.</p><span class="service-tags">PRICE RULES / DISCOUNTS / MARGIN</span></div><div class="service-item reveal"><span class="service-num">02 /</span><div class="service-icon">⧉</div><h3>Product data cleanup</h3><p>Review classifications, master-data drift and rule exceptions to reduce avoidable manual correction.</p><span class="service-tags">EXCEL / SAP EXPORTS / SKU LOGIC</span></div><div class="service-item reveal"><span class="service-num">03 /</span><div class="service-icon">◫</div><h3>Reporting that works</h3><p>Build lean dashboards and repeatable analysis that teams can maintain after handover.</p><span class="service-tags">KPI DESIGN / AUTOMATION / ANALYSIS</span></div></div></section>
+
+      <section id="about" class="about-section section-pad"><div class="container about-grid"><div class="about-heading reveal"><p class="eyebrow text-accent">/ 05 — THE PERSON BEHIND THE LOGIC</p><h2>Curious by nature.<br><span class="heading-subtle">Structured by habit.</span></h2><div class="about-monogram" aria-hidden="true">e<span>/</span>b.</div></div><div class="about-text reveal"><p class="about-lead">I'm Eyad — a pricing and data analyst interested in the details most dashboards miss.</p><p>My background includes roughly one year working with manufacturer-level pricing workflows, product classifications, and SAP-based master data. I use spreadsheets, database queries and practical automation to turn recurring data problems into repeatable checks.</p><p>I care about work that is easy to explain, easy to maintain, and useful long after the first analysis.</p><div class="toolbelt"><span>EXCEL</span><span>SAP WORKFLOWS</span><span>SQL / QUERIES</span><span>DATA ANALYSIS</span><span>AUTOMATION</span></div></div></div></section>
+
+      <section id="process" class="process-section container section-pad"><div class="section-heading reveal"><div><p class="eyebrow text-accent">/ 06 — THE APPROACH</p><h2>No mystery.<br><span class="heading-subtle">Just a useful process.</span></h2></div></div><div class="process-steps"><div class="process-step reveal"><span>01</span><h3>Understand</h3><p>Start with a specific business question, the existing process and a small relevant export.</p></div><div class="process-step reveal"><span>02</span><h3>Find</h3><p>Define the rules, find exceptions, and validate what the data actually supports.</p></div><div class="process-step reveal"><span>03</span><h3>Make it stick</h3><p>Deliver a transparent output and a simple method to run the check again.</p></div></div></section>
+
+      <section id="contact" class="contact-section"><div class="container contact-inner"><p class="eyebrow">/ 07 — YOUR NEXT MOVE</p><h2>Better decisions<br>start with <em>better questions.</em></h2><p>Have messy pricing, product data or reporting? Tell me what keeps breaking, and let's find a practical way forward.</p><a id="contact-email" class="button button-contact contact-link" href="#contact">Start a conversation <span>↗</span></a><span class="contact-sub" id="contact-status">Available for focused remote projects · US & GCC</span></div><div class="contact-grain" aria-hidden="true"></div></section>
+    </main>
+
+    <footer class="site-footer"><div class="container footer-grid"><div class="brand footer-brand"><span class="brand-symbol">e<span>∕</span>b</span><span class="brand-name">EYAD BESHIER <small>PRICING & DATA</small></span></div><p>Independent pricing and data analysis.<br>Built with clarity, not complexity.</p><div><a href="#home">BACK TO TOP ↑</a><small>© <span id="year">2026</span> EYAD BESHIER</small></div></div></footer>
+  </div>
+</body>
+</html>

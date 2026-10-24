@@ -1,0 +1,13 @@
+sku,category,premium_flag,current_price_group,expected_price_group,status
+SKU-104,Services,TRUE,Services,Premium Services,Needs review
+SKU-207,Storage,FALSE,Storage,Storage,Matched
+SKU-332,Servers,TRUE,Servers,Premium Servers,Needs review
+SKU-441,Software,FALSE,Software,Software,Matched
+SKU-521,Services,FALSE,Services,Services,Matched
+SKU-638,Storage,TRUE,Premium Storage,Premium Storage,Matched
+SKU-713,Services,TRUE,Premium Services,Premium Services,Matched
+SKU-809,Servers,FALSE,Services,Servers,Needs review
+SKU-905,Accessories,FALSE,Accessories,Accessories,Matched
+SKU-106,Storage,FALSE,Storage,Storage,Matched
+SKU-117,Software,TRUE,Software,Premium Software,Needs review
+SKU-228,Servers,FALSE,Servers,Servers,Matched
