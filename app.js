@@ -3,7 +3,7 @@
  * Example: const CONTACT_EMAIL = 'hello@yourdomain.com';
  * No server, database, cookies, analytics or paid API required.
  */
-const CONTACT_EMAIL = 'ADD_YOUR_EMAIL_HERE';
+const CONTACT_EMAIL = 'eyad_aly@outlokk.com';
 const CONTACT_SUBJECT = 'Pricing and data analysis project enquiry';
 
 const sampleProducts = [
