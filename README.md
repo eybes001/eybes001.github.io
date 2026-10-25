@@ -36,4 +36,4 @@ The raw workbook and SQLite staging database remain in `analysis/.cache/`, which
 
 The dashboard can export its active view and scope. Full-history exports are in `assets/data/`: product performance, monthly ledger, cleaning summary, customer segments, exception review, and validation report. The original synthetic toy dataset remains under `assets/` as an unused legacy file.
 
-Contact links open an email draft to `eyad_aly@outlook.com`; no form submits data to a server.
+The CV feature links to a readable `cv.html` page and the original, unchanged one-page PDF at `assets/Eyad-Aly-CV.pdf`. Contact links open an email draft to `eyad_aly@outlook.com`; no form submits data to a server.
