@@ -1,0 +1,8 @@
+Element Web v1.12.32
+Source: https://github.com/element-hq/element-web/releases/tag/v1.12.32
+Release archive SHA-256: 27599ca285d85edd841c04b5c662ce4e773f562bc98090b4b9e2d58cff6b308c
+
+This directory contains the official Element Web release with source maps and
+the sample configuration omitted. config.json, index.html metadata, and this
+notice were added or changed for this deployment. The original source is
+available from the upstream URL. See LICENSE-AGPL-3.0 and LICENSE-GPL-3.0.
