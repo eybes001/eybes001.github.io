@@ -37,3 +37,16 @@ The raw workbook and SQLite staging database remain in `analysis/.cache/`, which
 The dashboard can export its active view and scope. Full-history exports are in `assets/data/`: product performance, monthly ledger, cleaning summary, customer segments, exception review, and validation report. The original synthetic toy dataset remains under `assets/` as an unused legacy file.
 
 The CV feature links to a readable `cv.html` page and the original, unchanged one-page PDF at `assets/Eyad-Aly-CV.pdf`. Contact links open an email draft to `info@eyadaly.me`; no form submits data to a server. The unchanged PDF still prints the earlier Outlook address.
+
+## Private chat
+
+The unlisted `/private-chat/` path hosts the official Element Web v1.12.32 client, configured for the Matrix.org homeserver. It is absent from the public portfolio navigation and has a `noindex` directive. The client itself is public static code; privacy comes from each participant's Matrix account password, an invite-only direct message, and the room's end-to-end encryption. A secret URL is **not** an access control. The Matrix.org server handles account login and stores encrypted messages and some metadata; GitHub Pages serves only the client files. No Matrix credentials or message keys are stored in this repository.
+
+To activate a one-to-one chat after deployment:
+
+1. Open `https://eyadaly.me/private-chat/` in a private browser window. Each person creates their **own** Matrix.org account there, with a distinct strong password. Do not share an account or password.
+2. Each person saves their Element recovery key in a password manager or another safe place. Losing every signed-in session and the recovery key can make old messages unreadable.
+3. Exchange exact Matrix IDs through a channel where you already know each other. One person starts a direct message with the other ID. The recipient accepts the invite.
+4. Before sending private content, check the conversation's encryption status. If encryption is off, enable it in the room's Security & Privacy settings before sending anything; encryption cannot protect earlier messages. Verify the other person's identity by comparing Element's verification emojis or QR code in person or over a trusted call.
+
+The page is intentionally not linked from `index.html`. It is still discoverable through the public repository or by someone who knows the URL, and either participant can copy or screenshot messages. Element updates must be applied promptly when security releases appear. This static host cannot set Element's recommended response security and cache headers, so consider dedicated hosting if the chat becomes especially sensitive. The upstream distribution is at [Element Web releases](https://github.com/element-hq/element-web/releases); its GPL/AGPL licenses are copied into `private-chat/`.
