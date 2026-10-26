@@ -1,6 +1,8 @@
 # Eyad Aly — Retail Intelligence Portfolio
 
-A responsive static portfolio with a real-data analytics case study built from the [UCI Online Retail dataset](https://archive.ics.uci.edu/dataset/352/online+retail). The site runs without a framework, database, or build step. Open `index.html` directly, or preview it with `python3 -m http.server 8080 --bind 127.0.0.1`.
+A responsive static portfolio with a real-data analytics case study built from the [UCI Online Retail dataset](https://archive.ics.uci.edu/dataset/352/online+retail). Preview it with `python3 -m http.server 8080 --bind 127.0.0.1` so the clean section URLs resolve locally.
+
+The canonical CV page is `/cv/` (`cv/index.html`); `cv.html` redirects old links. The homepage sections also have real GitHub Pages entry points, such as `/work/` and `/dashboard/`. After editing `index.html`, run `python3 scripts/build_routes.py` to refresh those directory pages before publishing. `clean-routes.js` keeps in-page navigation, refresh, and browser history in sync with the clean paths.
 
 ## Source and reproduction
 
@@ -36,5 +38,5 @@ The raw workbook and SQLite staging database remain in `analysis/.cache/`, which
 
 The dashboard can export its active view and scope. Full-history exports are in `assets/data/`: product performance, monthly ledger, cleaning summary, customer segments, exception review, and validation report. The original synthetic toy dataset remains under `assets/` as an unused legacy file.
 
-The CV feature links to a readable `cv.html` page and the original, unchanged one-page PDF at `assets/Eyad-Aly-CV.pdf`. Contact links open an email draft to `info@eyadaly.me`; no form submits data to a server. The unchanged PDF still prints the earlier Outlook address.
+The CV feature links to a readable `/cv/` page and the original, unchanged one-page PDF at `assets/Eyad-Aly-CV.pdf`. Contact links open an email draft to `info@eyadaly.me`; no form submits data to a server. The unchanged PDF still prints the earlier Outlook address.
 
