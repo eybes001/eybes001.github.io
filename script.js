@@ -11,6 +11,34 @@
   const percent = n => n == null ? '—' : `${(n * 100).toFixed(1)}%`;
   let tab = 'overview';
   let ranking = 'net';
+  const allowedTabs = ['overview', 'products', 'customers', 'quality'];
+  const allowedRankings = ['net', 'credits'];
+  const shareUrl = () => {
+    const url = new URL('/dashboard/', location.origin);
+    url.searchParams.set('tab', tab);
+    url.searchParams.set('period', $('#period-select').value);
+    url.searchParams.set('market', $('#market-select').value);
+    if (tab === 'products') url.searchParams.set('ranking', ranking);
+    return url;
+  };
+  const syncUrl = () => {
+    if (location.pathname.replace(/index\.html$/, '') === '/dashboard/') {
+      history.replaceState(null, '', shareUrl().pathname + shareUrl().search);
+    }
+  };
+  const restoreUrl = () => {
+    if (location.pathname.replace(/index\.html$/, '') !== '/dashboard/') return;
+    const params = new URLSearchParams(location.search);
+    const period = params.get('period'), market = params.get('market');
+    if (period && [...$('#period-select').options].some(option => option.value === period)) $('#period-select').value = period;
+    if (market && [...$('#market-select').options].some(option => option.value === market)) $('#market-select').value = market;
+    const nextRanking = params.get('ranking');
+    ranking = allowedRankings.includes(nextRanking) ? nextRanking : 'net';
+    $$('[data-ranking]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.ranking === ranking)));
+    const nextTab = params.get('tab');
+    activate(allowedTabs.includes(nextTab) ? nextTab : 'overview');
+    render();
+  };
   const menu = $('.menu-toggle');
   menu.addEventListener('click', () => { const open = menu.getAttribute('aria-expanded') !== 'true'; menu.setAttribute('aria-expanded', String(open)); $('.site-nav').classList.toggle('is-open', open); });
   $$('#site-nav a').forEach(link => link.addEventListener('click', () => { menu.setAttribute('aria-expanded', 'false'); $('.site-nav').classList.remove('is-open'); }));
@@ -76,12 +104,37 @@
     $$('.dash-tabs button').forEach(button => { const selected = button.dataset.tab === next; button.setAttribute('aria-selected', String(selected)); button.tabIndex = selected ? 0 : -1; });
     ['overview', 'products', 'customers', 'quality'].forEach(name => { $(`#panel-${name}`).hidden = name !== next; });
   }
-  $$('.dash-tabs button').forEach(button => button.addEventListener('click', () => activate(button.dataset.tab)));
-  $('.dash-tabs').addEventListener('keydown', event => { const tabs = $$('.dash-tabs button'), index = tabs.indexOf(document.activeElement); if (index < 0) return; let next; if (event.key === 'ArrowRight') next = (index + 1) % tabs.length; else if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length; else if (event.key === 'Home') next = 0; else if (event.key === 'End') next = tabs.length - 1; else return; event.preventDefault(); activate(tabs[next].dataset.tab); tabs[next].focus(); });
-  $$('#period-select, #market-select').forEach(select => select.addEventListener('change', render));
-  $$('[data-ranking]').forEach(button => button.addEventListener('click', () => { ranking = button.dataset.ranking; $$('[data-ranking]').forEach(b => b.setAttribute('aria-pressed', String(b === button))); renderProducts(view()); }));
-  $$('[data-open-view]').forEach(link => link.addEventListener('click', () => { if (link.dataset.openRanking) { ranking = link.dataset.openRanking; $$('[data-ranking]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.ranking === ranking))); } activate(link.dataset.openView); renderProducts(view()); }));
+  $$('.dash-tabs button').forEach(button => button.addEventListener('click', () => { activate(button.dataset.tab); syncUrl(); }));
+  $('.dash-tabs').addEventListener('keydown', event => { const tabs = $$('.dash-tabs button'), index = tabs.indexOf(document.activeElement); if (index < 0) return; let next; if (event.key === 'ArrowRight') next = (index + 1) % tabs.length; else if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length; else if (event.key === 'Home') next = 0; else if (event.key === 'End') next = tabs.length - 1; else return; event.preventDefault(); activate(tabs[next].dataset.tab); tabs[next].focus(); syncUrl(); });
+  $$('#period-select, #market-select').forEach(select => select.addEventListener('change', () => { render(); syncUrl(); }));
+  $$('[data-ranking]').forEach(button => button.addEventListener('click', () => { ranking = button.dataset.ranking; $$('[data-ranking]').forEach(b => b.setAttribute('aria-pressed', String(b === button))); renderProducts(view()); syncUrl(); }));
+  $$('[data-open-view]').forEach(link => link.addEventListener('click', () => { if (link.dataset.openRanking) { ranking = link.dataset.openRanking; $$('[data-ranking]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.ranking === ranking))); } activate(link.dataset.openView); renderProducts(view()); queueMicrotask(syncUrl); }));
+  window.addEventListener('popstate', restoreUrl);
+  $('#share-view').addEventListener('click', async () => {
+    const url = shareUrl().href;
+    const status = $('#share-status');
+    try {
+      await navigator.clipboard.writeText(url);
+      status.textContent = 'Dashboard view link copied.';
+      $('#share-view').textContent = 'Link copied ✓';
+      setTimeout(() => { $('#share-view').textContent = 'Copy view link ↗'; }, 2500);
+    } catch {
+      status.textContent = 'Copy this dashboard link from the address bar.';
+      window.prompt('Copy this dashboard link:', url);
+    }
+  });
   const csv = value => { const text = String(value ?? ''); return /[",\r\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text; };
   $('#export-view').addEventListener('click', () => { const v = view(); let rows = tab === 'overview' ? v.trend : tab === 'products' ? (ranking === 'credits' ? v.credit_products : v.products) : tab === 'customers' ? v.segments : data.quality; if (!rows.length) return; const columns = Object.keys(rows[0]); const text = [columns.join(','), ...rows.map(row => columns.map(column => csv(row[column])).join(','))].join('\r\n') + '\r\n'; const url = URL.createObjectURL(new Blob([text], { type: 'text/csv;charset=utf-8' })); const link = node('a'); link.href = url; link.download = `retail-${tab}-${v.period}-${v.market}.csv`; document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000); });
-  renderQuality(); render();
+  if (window.PRICING_STUDY) {
+    put('#pricing-flagged', count(window.PRICING_STUDY.flagged_skus));
+    const target = $('#pricing-rows');
+    window.PRICING_STUDY.examples.slice(0, 6).forEach(row => {
+      const tr = node('tr');
+      const product = node('td');
+      product.append(node('b', '', row.description), node('small', '', row.sku));
+      tr.append(product, node('td', '', count(row.sale_lines)), node('td', '', money(row.p10_gbp)), node('td', '', money(row.p90_gbp)), node('td', '', `${row.p90_to_p10.toFixed(1)}×`));
+      target.append(tr);
+    });
+  }
+  renderQuality(); restoreUrl(); render();
 })();

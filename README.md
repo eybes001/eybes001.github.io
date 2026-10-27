@@ -2,7 +2,7 @@
 
 A responsive static portfolio with a real-data analytics case study built from the [UCI Online Retail dataset](https://archive.ics.uci.edu/dataset/352/online+retail). Preview it with `python3 -m http.server 8080 --bind 127.0.0.1` so the clean section URLs resolve locally.
 
-The canonical CV page is `/cv/` (`cv/index.html`); `cv.html` redirects old links. The homepage sections also have real GitHub Pages entry points, such as `/work/` and `/dashboard/`. After editing `index.html`, run `python3 scripts/build_routes.py` to refresh those directory pages before publishing. `clean-routes.js` keeps in-page navigation, refresh, and browser history in sync with the clean paths.
+The canonical CV page is `/cv/` (`cv/index.html`); `cv.html` redirects old links. The homepage sections also have real GitHub Pages entry points, such as `/work/`, `/dashboard/`, and `/pricing/`. After editing `index.html`, run `python3 scripts/build_routes.py` to refresh those directory pages before publishing. `clean-routes.js` keeps in-page navigation, refresh, and browser history in sync with the clean paths. Dashboard selections are encoded as `tab`, `period`, `market`, and (for products) `ranking` query parameters for direct sharing.
 
 ## Source and reproduction
 
@@ -12,6 +12,7 @@ Rebuild with Python 3.10+:
 
 ```sh
 python3 analysis/pipeline.py --download
+python3 analysis/pricing_study.py
 ```
 
 If your Python installation lacks CA certificates, download the official UCI archive with `curl` and pass the extracted workbook:
@@ -21,6 +22,7 @@ mkdir -p analysis/.cache
 curl -fL 'https://archive.ics.uci.edu/static/public/352/online%2Bretail.zip' -o analysis/.cache/online-retail.zip
 unzip -o analysis/.cache/online-retail.zip -d analysis/.cache
 python3 analysis/pipeline.py --source 'analysis/.cache/Online Retail.xlsx'
+python3 analysis/pricing_study.py
 ```
 
 The raw workbook and SQLite staging database remain in `analysis/.cache/`, which is ignored by Git. The public site reads the checked-in, validated `assets/data/retail-data.js` snapshot. `validation-report.json` records reconciliation checks.
@@ -36,7 +38,7 @@ The raw workbook and SQLite staging database remain in `analysis/.cache/`, which
 
 ## Outputs
 
-The dashboard can export its active view and scope. Full-history exports are in `assets/data/`: product performance, monthly ledger, cleaning summary, customer segments, exception review, and validation report. The original synthetic toy dataset remains under `assets/` as an unused legacy file.
+The dashboard can export its active view and scope, and the copy-link button restores the current tab, period, market, and product ranking. Full-history exports are in `assets/data/`: product performance, monthly ledger, cleaning summary, customer segments, exception review, and validation report. The second pricing study uses accepted sale lines from the same source, includes only SKUs with at least 100 lines, and flags 90th-to-10th percentile unit-price ratios of at least 3. This is a review queue, not proof of pricing mistakes. Its full export is `assets/data/pricing-variation.csv`. The original synthetic toy dataset remains under `assets/` as an unused legacy file.
 
-The CV feature links to a readable `/cv/` page and the original, unchanged one-page PDF at `assets/Eyad-Aly-CV.pdf`. Contact links open an email draft to `info@eyadaly.me`; no form submits data to a server. The unchanged PDF still prints the earlier Outlook address.
+The CV feature links to a readable `/cv/` page and an updated one-page PDF at `assets/Eyad-Aly-CV.pdf`. Both use `info@eyadaly.me`. Contact links open an email draft; no form submits data to a server. `robots.txt`, `sitemap.xml`, page metadata, and `assets/social-preview.png` support search discovery and link previews.
 

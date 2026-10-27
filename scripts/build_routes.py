@@ -9,6 +9,7 @@ TITLE = "<title>Eyad Aly — Pricing & Data Intelligence</title>"
 ROUTES = {
     "dashboard": "Dashboard — Eyad Aly",
     "work": "Case study — Eyad Aly",
+    "pricing": "Pricing study — Eyad Aly",
     "expertise": "Expertise — Eyad Aly",
     "about": "About — Eyad Aly",
     "process": "Process — Eyad Aly",
@@ -21,6 +22,8 @@ if SOURCE.count("<head>") != 1 or SOURCE.count(TITLE) != 1:
 for slug, title in ROUTES.items():
     page = SOURCE.replace("<head>", '<head>\n  <base href="/">', 1)
     page = page.replace(TITLE, f"<title>{title}</title>", 1)
+    page = page.replace('href="https://eyadaly.me/"', f'href="https://eyadaly.me/{slug}/"', 1)
+    page = page.replace('content="https://eyadaly.me/"', f'content="https://eyadaly.me/{slug}/"', 1)
     destination = ROOT / slug / "index.html"
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(page, encoding="utf-8")

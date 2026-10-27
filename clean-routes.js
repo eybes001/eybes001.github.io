@@ -5,13 +5,14 @@
     '/': ['top', 'Eyad Aly — Pricing & Data Intelligence'],
     '/dashboard/': ['dashboard', 'Dashboard — Eyad Aly'],
     '/work/': ['work', 'Case study — Eyad Aly'],
+    '/pricing/': ['pricing', 'Pricing study — Eyad Aly'],
     '/expertise/': ['expertise', 'Expertise — Eyad Aly'],
     '/about/': ['about', 'About — Eyad Aly'],
     '/process/': ['method', 'Process — Eyad Aly'],
     '/contact/': ['contact', 'Contact — Eyad Aly']
   };
   const legacyPaths = {
-    top: '/', main: '/', dashboard: '/dashboard/', work: '/work/',
+    top: '/', main: '/', dashboard: '/dashboard/', work: '/work/', pricing: '/pricing/',
     expertise: '/expertise/', about: '/about/', method: '/process/',
     contact: '/contact/'
   };
